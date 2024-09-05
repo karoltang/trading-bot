@@ -50,13 +50,13 @@ def trading_bot():
             previous_momentum = data['momentum'].iloc[-2]
             latest_rsi = data['rsi'].iloc[-1]
 
-            # Buy signal: Momentum crosses 0 upwards and RSI >= 70
-            if previous_momentum < 0 and latest_momentum > 0 and latest_rsi >= 70:
+            # Buy signal: Momentum crosses 0 upwards and RSI <= 30
+            if previous_momentum < 0 and latest_momentum > 0 and latest_rsi <= 30:
                 print("Buy Signal Detected")
                 place_order(OrderSide.BUY, 1)  # Adjust quantity as needed if wanted
 
-            # Sell signal: Momentum crosses 0 downwards and RSI <= 30
-            elif previous_momentum > 0 and latest_momentum < 0 and latest_rsi <= 30:
+            # Sell signal: Momentum crosses 0 downwards and RSI >= 70
+            elif previous_momentum > 0 and latest_momentum < 0 and latest_rsi >= 70:
                 print("Sell Signal Detected")
                 place_order(OrderSide.SELL, 1)
 
