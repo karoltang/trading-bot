@@ -7,55 +7,9 @@ import time
 from datetime import datetime, timedelta
 import pytz
 
-api_key = "PKRZGBABQ7W3RCW6YAWM"
-secret_key = "4v6WXeDxI7kisnYVrUhQ32661TDf3dHlgfHFHFAq"
+api_key = "api_key" #replace w own
+secret_key = "secret_key"
 trading_client = TradingClient(api_key, secret_key, paper=True, url_override = "https://paper-api.alpaca.markets")
-
-"""req = GetAssetsRequest(
-  attributes = "options_enabled"  
-)
-assets = trading_client.get_all_assets(req)
-
-assets_symbols = []
-for asset in assets:
-    assets_symbols.append(asset.symbol)
-
-#print(assets_symbols)
-print(len(assets_symbols))"""
-
-"""rest_client = REST(api_key, secret_key)
-bars = rest_client.get_bars("SPY", TimeFrame.Day, "2024-07-01", "2024-09-01").df
-
-# SPY bar data candlestick plot
-candlestick_fig = go.Figure(data=[go.Candlestick(x=bars.index,
-    open=bars['open'],
-    high=bars['high'],
-    low=bars['low'],
-    close=bars['close'])])
-
-bars['30_Day_SMA'] = ta.SMA(bars['close'], timeperiod=30)
-# creating a line plot for our sma
-sma_fig = px.line(x=bars.index, y=bars['30_Day_SMA'])
-
-# adding both plots onto one chart
-fig = go.Figure(data=candlestick_fig.data + sma_fig.data)
-
-bars['upper_band'], bars['middle_band'], bars['lower_band'] = ta.BBANDS(bars['close'], timeperiod =30)
-
-
-# creating a line plot for our sma
-upper_line_fig = px.line(x=bars.index, y=bars['upper_band'])
-# creating a line plot for our sma
-lower_line_fig = px.line(x=bars.index, y=bars['lower_band'])
-
-# adding both plots onto one chart
-fig = go.Figure(data=candlestick_fig.data + sma_fig.data + upper_line_fig.data + lower_line_fig.data)
-
-# displaying our chart
-fig.show()"""
-
-
-# Initialize REST API connection
 rest_api = REST(api_key, secret_key, base_url="https://paper-api.alpaca.markets")
 
 # Define the symbol and time frame
